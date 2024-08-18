@@ -1,0 +1,102 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model cities {
+  city_name          String?
+  latitude           Float?
+  longitude          Float?
+  xata_version       Int                  @default(0)
+  xata_createdat     DateTime             @default(now()) @db.Timestamptz(6)
+  xata_updatedat     DateTime             @default(now()) @db.Timestamptz(6)
+  xata_id            String               @unique(map: "_pgroll_new_cities_xata_id_key") @default(dbgenerated("('rec_'::text || (xata_private.xid())::text)"))
+  contry_id          String?
+  countries          countries?           @relation(fields: [contry_id], references: [xata_id], onDelete: Cascade, onUpdate: NoAction, map: "contry_id_link")
+  points_of_interest points_of_interest[]
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model countries {
+  country_name   String?
+  currency       String?
+  language       String?
+  timezone       String?
+  xata_id        String   @unique(map: "_pgroll_new_countries_xata_id_key") @default(dbgenerated("('rec_'::text || (xata_private.xid())::text)"))
+  xata_version   Int      @default(0)
+  xata_createdat DateTime @default(now()) @db.Timestamptz(6)
+  xata_updatedat DateTime @default(now()) @db.Timestamptz(6)
+  cities         cities[]
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model points_of_interest {
+  name           String?
+  description    String?
+  category       String?
+  cost           Float?
+  currency       String?
+  latitude       Float?
+  longitude      Float?
+  xata_id        String          @unique(map: "_pgroll_new_points_of_interest_xata_id_key") @default(dbgenerated("('rec_'::text || (xata_private.xid())::text)"))
+  xata_version   Int             @default(0)
+  xata_createdat DateTime        @default(now()) @db.Timestamptz(6)
+  xata_updatedat DateTime        @default(now()) @db.Timestamptz(6)
+  city_id        String?
+  image          Json?
+  cities         cities?         @relation(fields: [city_id], references: [xata_id], onDelete: Cascade, onUpdate: NoAction, map: "city_id_link")
+  trip_itinerary trip_itinerary?
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model trip_itinerary {
+  xata_version       Int                @default(0)
+  xata_createdat     DateTime           @default(now()) @db.Timestamptz(6)
+  xata_updatedat     DateTime           @default(now()) @db.Timestamptz(6)
+  xata_id            String             @unique(map: "_pgroll_new_trip_itinerary_xata_id_key") @default(dbgenerated("('rec_'::text || (xata_private.xid())::text)"))
+  trip_id            String             @unique(map: "trip_itinerary__pgroll_new_trip_id_key")
+  poi_id             String             @unique(map: "trip_itinerary__pgroll_new_poi_id_key")
+  order_in_day       Int
+  images             Json
+  points_of_interest points_of_interest @relation(fields: [poi_id], references: [xata_id], onUpdate: NoAction, map: "poi_id_link")
+  trips              trips              @relation(fields: [trip_id], references: [xata_id], onUpdate: NoAction, map: "trip_id_link")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model trips {
+  xata_id        String          @unique(map: "_pgroll_new_trips_xata_id_key") @default(dbgenerated("('rec_'::text || (xata_private.xid())::text)"))
+  xata_version   Int             @default(0)
+  xata_createdat DateTime        @default(now()) @db.Timestamptz(6)
+  xata_updatedat DateTime        @default(now()) @db.Timestamptz(6)
+  name           String
+  start_date     DateTime        @db.Timestamptz(6)
+  end_date       DateTime        @db.Timestamptz(6)
+  budget         Int
+  currency       String
+  user_id        String          @unique(map: "trips__pgroll_new_user_id_key")
+  trip_itinerary trip_itinerary?
+  users          users           @relation(fields: [user_id], references: [xata_id], onUpdate: NoAction, map: "user_id_link")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model users {
+  xata_updatedat DateTime @default(now()) @db.Timestamptz(6)
+  xata_id        String   @unique(map: "_pgroll_new_users_xata_id_key") @default(dbgenerated("('rec_'::text || (xata_private.xid())::text)"))
+  xata_version   Int      @default(0)
+  xata_createdat DateTime @default(now()) @db.Timestamptz(6)
+  username       String   @unique(map: "users__pgroll_new_username_key")
+  first_name     String
+  last_name      String
+  trips          trips?
+}

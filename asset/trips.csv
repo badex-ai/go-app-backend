@@ -1,0 +1,10 @@
+trip_id,user_id,name,start_date,end_date,budget,currency
+1,1,Trip 1 for User 1,2024-12-21,2024-12-27,3231.07,JPY
+2,1,Trip 2 for User 1,2024-05-23,2024-06-04,1950.05,JPY
+3,1,Trip 3 for User 1,2024-04-21,2024-04-30,2009.8,BRL
+4,2,Trip 1 for User 2,2024-08-23,2024-08-31,4664.53,JPY
+5,2,Trip 2 for User 2,2024-05-12,2024-05-16,3910.5,EUR
+6,2,Trip 3 for User 2,2024-05-22,2024-05-30,1456.26,BRL
+7,3,Trip 1 for User 3,2024-04-16,2024-04-20,2224.28,JPY
+8,3,Trip 2 for User 3,2024-09-01,2024-09-10,3122.54,JPY
+9,3,Trip 3 for User 3,2024-01-24,2024-01-29,2195.64,EUR

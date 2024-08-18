@@ -1,0 +1,29 @@
+poi_id,city_id,name,description,category,cost,currency,latitude,longitude
+1,1,Eiffel Tower,Iconic iron tower,Landmark,25.9,EUR,48.8584,2.2945
+2,1,Louvre Museum,World's largest art museum,Museum,17.0,EUR,48.8606,2.3376
+3,1,Notre-Dame Cathedral,Medieval Catholic cathedral,Religious,0,EUR,48.853,2.3499
+4,1,Champs-Élysées,Famous avenue,Shopping,0,EUR,48.8698,2.3075
+5,2,Basilica of Notre-Dame de Fourvière,19th-century basilica,Religious,0,EUR,45.762,4.8222
+6,2,Parc de la Tête d'Or,Urban park with a zoo,Park,0,EUR,45.777,4.852
+7,2,Museum of Fine Arts of Lyon,Art museum,Museum,8.0,EUR,45.766,4.8339
+8,2,Vieux Lyon,Historic district,Neighborhood,0,EUR,45.7612,4.827
+9,3,Old Port of Marseille,Historic port,Landmark,0,EUR,43.2951,5.374
+10,3,Basilica of Notre-Dame de la Garde,Neo-Byzantine church,Religious,0,EUR,43.284,5.371
+11,3,Calanques National Park,Coastal national park,Nature,0,EUR,43.2181,5.4307
+12,3,MuCEM,Museum of European and Mediterranean Civilisations,Museum,11.0,EUR,43.2969,5.3592
+13,6,Tokyo Skytree,Tallest tower in the world,Landmark,3100,JPY,35.7101,139.8107
+14,6,Senso-ji Temple,Ancient Buddhist temple,Religious,0,JPY,35.7147,139.7966
+15,6,Meiji Shrine,Shinto shrine,Religious,0,JPY,35.6763,139.6993
+16,6,Tokyo Disneyland,Theme park,Entertainment,8200,JPY,35.6329,139.8804
+17,7,Osaka Castle,Historic castle,Landmark,600,JPY,34.6873,135.5262
+18,7,Universal Studios Japan,Theme park,Entertainment,7800,JPY,34.6654,135.4323
+19,7,Dotonbori,Entertainment district,Neighborhood,0,JPY,34.6687,135.501
+20,7,Osaka Aquarium Kaiyukan,Large aquarium,Aquarium,2300,JPY,34.6545,135.4287
+21,11,Christ the Redeemer,Art Deco statue of Jesus,Landmark,40.0,BRL,-22.9519,-43.2105
+22,11,Copacabana Beach,Famous beach,Beach,0,BRL,-22.9714,-43.1823
+23,11,Sugarloaf Mountain,Granite peak with cable car,Nature,110.0,BRL,-22.9492,-43.1545
+24,11,Maracanã Stadium,Iconic football stadium,Sports,40.0,BRL,-22.9122,-43.2302
+25,12,São Paulo Museum of Art,Art museum,Museum,40.0,BRL,-23.5614,-46.6559
+26,12,Ibirapuera Park,Urban park,Park,0,BRL,-23.5874,-46.6576
+27,12,Paulista Avenue,Major avenue,Shopping,0,BRL,-23.5632,-46.6542
+28,12,Municipal Theatre of São Paulo,Opera house,Theatre,30.0,BRL,-23.5454,-46.6388
