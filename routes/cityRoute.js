@@ -1,6 +1,11 @@
 import { Router } from "express";
-import {getCityInfo} from "../controllers/cityController"
+import {getCityInfo} from "../controllers/cityController.js"
+import {getPlacesOfInterestInfo, markPlaceOfInterestAsVisited} from '../controllers/placeOfInterestController.js'
 
 const router = Router() 
 
-router.get("/city/:id",getCityInfo)
+router.get("/:cityId/poi/:poiId",markPlaceOfInterestAsVisited)
+router.get("/:cityId/pois",getPlacesOfInterestInfo)
+router.get("/:cityId",getCityInfo)
+
+export default router

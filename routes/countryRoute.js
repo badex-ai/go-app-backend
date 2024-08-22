@@ -1,6 +1,11 @@
 import { Router } from "express";
-import { getCountryInfo } from "../controllers/countryController";
+import { getCountryInfo, getAllCountries, getCitiesForCountries } from "../controllers/countryController.js";
 
-const route = Router()
+const router = Router()
 
-route.get("/country/:id",getCountryInfo)
+
+router.get("/:countryId/cities",getCitiesForCountries)
+router.get("/:countryId",getCountryInfo)
+router.get("/",getAllCountries)
+
+export default router
