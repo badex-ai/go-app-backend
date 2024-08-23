@@ -3,12 +3,20 @@ import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
-export const  getAllUserTrips=async(userId)=>{
-    await prisma.trips.findMany({
-        where:{
-            user_id : userId
-        }
-    })
+//TODO
+export const  getUserTrips=async(req,res)=>{
+
+  try {
+    const result = await prisma.trips.findMany({
+      where:{
+          user_id : "rec_cr4dgf0a5nic5e0atuc0"
+      }
+  })
+  res.status(200).json(result)
+  } catch (error) {
+    
+  }
+   
 }
 
 

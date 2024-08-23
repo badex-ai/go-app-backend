@@ -14,8 +14,11 @@
   "dependencies": {
     "@prisma/client": "^5.18.0",
     "@xata.io/client": "^0.0.0-next.v64f10283eb9a098c575590d3ea17600e350321c9",
+    "connect-redis": "^7.1.1",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express-session": "^1.18.0",
+    "ioredis": "^5.4.1",
     "prisma": "^5.18.0"
   },
   "devDependencies": {

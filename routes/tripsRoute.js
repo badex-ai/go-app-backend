@@ -1,6 +1,6 @@
 import { Router } from "express";
 const router = Router()
-import {getAllUserTrips} from '../controllers/tripsController.js'
+import {getUserTrips} from '../controllers/tripsController.js'
 
-router.get("/mytrips",getAllUserTrips)
+router.get("/mytrips",getUserTrips)
 export default router
